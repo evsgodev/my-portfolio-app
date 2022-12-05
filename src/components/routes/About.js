@@ -6,7 +6,7 @@ function About() {
     return (
         <div className="page-wrapper">
             <Header toggleLinkPath="/" toggleLinkText="About" />
-            <Intro title="about" />
+            <Intro title="About" page="true" />
         </div>
     )
 }

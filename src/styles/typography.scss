@@ -1,0 +1,92 @@
+@use "sass:math";
+
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3,
+h4,
+.h4,
+h5,
+.h5 {
+  margin-top: 0;
+  font-family: var(--font-family-secondary);
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+}
+
+sup,
+sub {
+  font-size: inherit;
+}
+
+sup {
+  top: 0;
+}
+
+sub {
+  bottom: 0;
+}
+
+b {
+  font-weight: 700;
+}
+
+@each $weight in (300 400 500 600 700) {
+  .font-weight-#{$weight} {
+    font-weight: $weight;
+  }
+}
+
+.text-center {
+  text-align: center;
+}
+
+.section {
+  &__title {
+    margin-bottom: #{math.div(60, 72) * 1em};
+    font-size: 72px;
+    text-align: center;
+    font-family: var(--font-family-primary);
+    opacity: 0;
+
+    @media screen and (max-width: 767px) {
+      font-size: 44px;
+    }
+  }
+
+  &__title-text {
+    position: relative;
+    display: inline-block;
+  }
+
+  &__title-line {
+    position: absolute;
+    width: calc(100% - 1ch);
+    height: 0.1em;
+    background-color: currentColor;
+
+    &--after {
+      top: 100%;
+      right: 0;
+    }
+  }
+}
+
+ul {
+  padding-left: 1em;
+
+  li {
+    &::marker {
+      color: var(--blue-color);
+    }
+  }
+}

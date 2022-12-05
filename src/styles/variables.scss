@@ -1,0 +1,51 @@
+:root {
+  --black-color: #000000;
+  --black-color-a1: rgba(0, 0, 0, 0.075);
+  --black-color-a2: rgba(0, 0, 0, 0.12);
+  --black-color-a5: rgba(0, 0, 0, 0.5);
+  --black-color-a9: rgba(0, 0, 0, 0.95);
+  --black-primary-color: #0e1012; // #191919
+  --black-second-color: #212121;
+  --gray-color: #a9a9a9;
+  --gray-color-f30: #E9F2F2;
+  --brown-color: #25262a;
+  --blue-color: #0769e0;
+  --blue-color-a75: rgba(7, 105, 224, 0.75);
+  --blue-color-a5: rgba(7, 105, 224, 0.5);
+  --purple-color: #e9538b;
+  --yellow-color: #feef01;
+  --white-color: #ffffff;
+  --white-color-a1: rgba(255, 255, 255, 0.1);
+  --white-color-a2: rgba(255, 255, 255, 0.2);
+  --white-color-a6: rgba(255, 255, 255, 0.6);
+  --white-color-a9: rgba(255, 255, 255, 0.95);
+  --background-outline-hover: linear-gradient(to right, var(--blue-color) 30%, var(--purple-color) 70%);
+
+  // Timing functions
+  --t-base: 0.175s ease-in-out;
+  --t-smooth: cubic-bezier(.215, .61, .355, 1);
+  --t-elastic: 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+  // Fonts
+  --font-size-base: 16px;
+  --font-family-default: 'Source Sans Pro', sans-serif;
+  --font-family-primary: 'Mantserrat', sans-serif;
+
+  --box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.05), 0px 8px 32px rgba(0, 0, 0, 0.12);
+  --border-radius: 16px;
+  --header-height: 72px;
+  --intro-height: 79vh;
+  --projects-padding-top: 6vh;
+  --footer-height: 54px;
+  --container-gutter: 3%;
+  --scrollbar-width: 17px;
+
+  @media screen and (max-width: 992px) {
+    --container-gutter: 15px;
+  }
+
+  @media screen and (max-width: 767px) {
+    --header-height: 60px;
+    --intro-height: 100vh;
+  }
+}

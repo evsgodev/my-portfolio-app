@@ -62,7 +62,7 @@
     display: flex;
     padding-left: 6.25rem;
 
-    .switcher {
+    > [class*="Switcher"] {
       order: -1;
       position: absolute;
       right: var(--container-gutter);

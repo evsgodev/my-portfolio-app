@@ -7,7 +7,7 @@
   border-radius: 0.9375rem;
   background-color: var(--black-second-color);
   transition: var(--t-base);
-  transition-property: opacity transform background-color;
+  transition-property: opacity, transform, background-color;
 
   &:focus {
     outline: none;
@@ -20,6 +20,7 @@
   &__handle {
     position: relative;
     z-index: 1;
+    display: block;
     width: 50%;
     height: 100%;
     padding: 2px;
@@ -28,7 +29,7 @@
     border-radius: 0.9375rem;
     transform: translateX(0);
     transition: var(--t-base);
-    transition-property: opacity transform;
+    transition-property: opacity, transform;
 
     .switcher--theme & {
       transform: scale(1.4);
