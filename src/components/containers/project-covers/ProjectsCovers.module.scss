@@ -77,16 +77,6 @@
     .project-covers--row & {
       display: block;
     }
-
-    .swiper-container {
-      overflow: inherit;
-    }
-
-    .swiper-slide {
-      @media screen and (min-width: 768px) {
-        width: 60%;
-      }
-    }
   }
 
   &__item {

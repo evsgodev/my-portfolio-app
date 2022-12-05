@@ -1,7 +1,22 @@
 import { useState } from "react";
+import styled from "styled-components";
 import classes from "./ProjectsCovers.module.scss";
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Pagination } from "swiper";
+import 'swiper/css';
+import 'swiper/css/pagination';
 import ProjectCover from "../../layout/project-cover/ProjectCover";
 import { projects } from "../../../assets/data";
+
+const Slider = styled(Swiper)`
+  overflow: inherit;
+
+  .swiper-slide {
+    @media screen and (min-width: 768px) {
+      width: 60%;
+    }
+  }
+`;
 
 function ProjectCovers(props) {
     const [ items ] = useState(projects);
@@ -35,12 +50,46 @@ function ProjectCovers(props) {
             <div className={classes['project-covers__row']}>
                 <div className="container">
                     <div className="container__center">
-                        <div className={`${classes['project-covers__row-slider']} swiper-container`} id="projectsCoverSlider">
-                            <div className="swiper-wrapper">
-                                <div className="swiper-slide">
-                                </div>
-                            </div>
-                        </div>
+                        <Slider
+                            id="projectsCoverSlider"
+                            modules={[Pagination]}
+                            spaceBetween={50}
+                            slidesPerView={'auto'}
+                            freeMode={true}
+                            loop={true}
+                            loopedSlides={5}
+                            speed={400}
+                            touchStartPreventDefault={false}
+                            pagination={{
+                                el: classes['project-covers__progress-line'],
+                                type: 'progressbar'
+                            }}
+                            breakpoints={{
+                                768: {
+                                    spaceBetween: 80,
+                                    centeredSlides: false,
+                                    touchRatio: 2,
+                                    resistanceRatio: 0.5
+                                }
+                            }}
+                        >
+                            {items.map((item) => {
+                                const {
+                                    id,
+                                    empty: isEmpty
+                                } = item;
+
+                                if (!isEmpty) {
+                                    return (
+                                        <SwiperSlide key={id}>
+                                            <ProjectCover project={item}/>
+                                        </SwiperSlide>
+                                    )
+                                }
+
+                                return false;
+                            })}
+                        </Slider>
                     </div>
                 </div>
             </div>

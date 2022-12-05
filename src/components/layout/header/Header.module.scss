@@ -201,12 +201,6 @@
       color: var(--white-color);
     }
 
-    .char {
-      display: inline-block;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-
     @media (max-width: 992px) {
       display: grid;
       margin-left: 6.5rem;
@@ -339,4 +333,10 @@
       transform: none!important;
     }
   }
+}
+
+.char {
+  display: inline-block;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }

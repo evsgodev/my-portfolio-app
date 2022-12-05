@@ -19,6 +19,19 @@ const Intro = props => {
                 <div className={classes['intro-caption__title']}>{props.title}</div>
             </div>
             {(() => {
+                if (props.title.toLowerCase() === 'portfolio') {
+                    return (
+                        <div className={classes['intro__content']}>
+                            <h1 className={classes['intro__title']}>
+                                <span className={classes['intro__title-letters']}>Hey there! I' m Evgeny!</span>&nbsp;
+                                <span className={classes['intro__title-letters']}>The Front-End</span>&nbsp;
+                                <span className={classes['text-type']}>Developer</span>
+                            </h1>
+                            <a className={`${classes['intro__scroll-btn']} js-scroll-link is-visible`} href="#content"></a>
+                        </div>
+                    )
+                }
+
                 if (props.title.toLowerCase() === 'about') {
                     return (
                         <About />

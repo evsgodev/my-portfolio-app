@@ -37,7 +37,7 @@ const Header = props => {
                     <div className={classes['page-header__center']}>
                         <Link className={classes['page-header__title-link']} to="/about">
                             <h2 className={classes['page-header__title']}>
-                                <span className={"char"}>Evgeny</span> <span className={"char"}>Staroverov</span>
+                                <span className={classes.char}>Evgeny</span> <span className={classes.char}>Staroverov</span>
                             </h2>
                         </Link>
                     </div>
