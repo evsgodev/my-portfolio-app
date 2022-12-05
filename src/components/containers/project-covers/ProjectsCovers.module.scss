@@ -1,0 +1,146 @@
+.project-covers {
+  &__progress-line {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 5px;
+    width: 100%;
+    background-color: transparent;
+    transform: translateY(100%);
+    opacity: 0;
+    transition: var(--t-base);
+    pointer-events: none;
+
+    &.is-visible {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    .swiper-pagination-progressbar-fill {
+      background-image: var(--background-outline-hover);
+    }
+  }
+
+  &__title {
+    position: absolute;
+    right: 7%;
+    bottom: -1rem;
+    z-index: -1;
+    margin: 0;
+    font-size: 230px;
+    line-height: 1;
+    color: var(--black-color);
+    opacity: 0.18;
+    text-transform: uppercase;
+    pointer-events: none;
+    user-select: none;
+
+    .theme-alt & {
+      opacity: 0.09;
+    }
+
+    @media(hover: hover) {
+      filter: drop-shadow(0px 8px 16px rgba(0, 55, 250, 0.4));
+    }
+
+    @media screen and (max-width: 1365px) {
+      right: 10%;
+      bottom: 0;
+      font-size: 15.9vw;
+    }
+
+    @media screen and (max-width: 767px) {
+      right: auto;
+      left: var(--container-gutter);
+      font-size: 18vw;
+    }
+
+    @media screen and (max-width: 767px) and (orientation: portrait) {
+      display: none;
+    }
+  }
+
+  &__items {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-column-gap: 5%;
+
+    @media (max-width: 767px) and (orientation: portrait) {
+      grid-row-gap: 24px;
+    }
+  }
+
+  &__row {
+    position: relative;
+    display: none;
+
+    .project-covers--row & {
+      display: block;
+    }
+
+    .swiper-container {
+      overflow: inherit;
+    }
+
+    .swiper-slide {
+      @media screen and (min-width: 768px) {
+        width: 60%;
+      }
+    }
+  }
+
+  &__item {
+    grid-column: span 6;
+
+    &--primary {
+      grid-column: span 12;
+
+      @media screen and (min-width: 768px) {
+        margin-bottom: 4%;
+      }
+    }
+
+    .project-covers__items & {
+      &:nth-child(1),
+      &:nth-child(2) {
+        @media screen and (min-width: 768px) {
+          .project-cover {
+            transform: none!important;
+            clip-path: none!important;
+          }
+        }
+      }
+    }
+
+    @media screen and (min-width: 768px) {
+      &:nth-child(2n) {
+        margin-top: 12%;
+      }
+    }
+
+    &--primary ~ .project-covers__item {
+      @media screen and (min-width: 768px) {
+        &:nth-child(2n) {
+          margin-top: 0;
+        }
+
+        &:nth-child(2n+1) {
+          margin-top: 12%;
+        }
+      }
+    }
+
+    @media (max-width: 767px) {
+      grid-column: 2 / 12;
+      margin-top: 7%;
+
+      &--last {
+        display: none;
+      }
+    }
+
+    @media (max-width: 567px) {
+      grid-column: span 12;
+    }
+  }
+}

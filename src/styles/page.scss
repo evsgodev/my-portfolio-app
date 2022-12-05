@@ -11,7 +11,8 @@
     top: 0;
     z-index: 0;
     height: 100%;
-    background: url('../../public/images/bg-pattern.png') repeat 50%, url('../../public/images/bg-page.jpg') no-repeat 50% 25% / cover;
+    background-image: url('../../public/images/bg-pattern.png'), url('../../public/images/bg-page.jpg');
+    background-position: 50%, 50% 25%;
     background-size: auto, cover;
     background-repeat: repeat, no-repeat;
     opacity: 0.10;
@@ -43,7 +44,7 @@
   padding: var(--projects-padding-top) 0 140px;
   margin-top: calc(var(--offset) * -1);
   margin-bottom: calc(-1 * var(--footer-height));
-  transform: translateY(calc(var(--offset)));
+  transform: translateY(var(--offset));
   overflow: hidden;
 
   .intro--page ~ & {
