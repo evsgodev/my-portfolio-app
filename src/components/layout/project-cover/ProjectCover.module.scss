@@ -38,14 +38,14 @@
     width: 100%;
     margin: auto;
 
-    .project-covers__item--primary & {
+    [class*="item--primary"] & {
       @media screen and (min-width: 768px) {
         display: grid;
         grid-template-columns: repeat(12, 1fr);
       }
     }
 
-    .theme-alt & {
+    [class*=theme-alt] & {
       color: var(--black-primary-color);
     }
 
@@ -74,7 +74,7 @@
     &:focus {
       color: var(--white-color);
 
-      .theme-alt & {
+      [class*=theme-alt] & {
         color: var(--black-primary-color);
       }
     }
@@ -90,7 +90,7 @@
     z-index: 1;
     margin-left: 1rem;
 
-    .project-covers__item--primary & {
+    [class*="item--primary"] & {
       grid-column: 3 / span 10;
     }
 
@@ -192,7 +192,7 @@
       opacity: 1;
     }
 
-    .project-covers__item--primary & {
+    [class*="item--primary"] & {
       grid-column: 1 / span 6;
       opacity: 1;
 
@@ -243,13 +243,13 @@
     text-transform: uppercase;
     color: var(--white-color);
 
-    .theme-alt & {
+    [class*=theme-alt] & {
       @media screen and (min-width: 768px) {
         color: var(--black-primary-color);
       }
     }
 
-    .project-covers__item--dark & {
+    .project-cover--dark & {
       @media screen and (min-width: 768px) {
         color: var(--white-color);
 
@@ -303,7 +303,7 @@
       transform: scaleX(1);
       transition: transform 0.5s ease-out;
 
-      .theme-alt & {
+      [class*=theme-alt] & {
         background-color: var(--black-primary-color);
       }
 
@@ -327,7 +327,7 @@
       transition: var(--t-base);
       transition-duration: 0.025s;
 
-      .theme-alt & {
+      [class*=theme-alt] & {
         border-color: var(--black-primary-color);
       }
 

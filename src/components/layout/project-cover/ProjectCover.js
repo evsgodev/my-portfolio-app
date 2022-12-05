@@ -1,21 +1,28 @@
 import classes from "./ProjectCover.module.scss";
 
-function ProjectCover(props) {
+const ProjectCover = props => {
+    const { dark: isDark, empty: isEmpty } = props.project;
+
     return (
-        <article className={classes["project-cover"]}>
+        <article className={`${classes["project-cover"]} ${isDark ? classes['project-cover--dark'] : ''} ${isEmpty ? classes['project-cover--empty'] : ''}`}>
             <div className={classes["project-cover__inner"]}>
-                <a className={classes["project-cover__image-wrap"]} href="#" target="_blank">
-                <div className={classes["project-cover__image-container"]}>
-                    <img
-                        className={classes["project-cover__image img-cover js-lazy"]}
-                        src="assets/img/content/projects/arion.jpg"
-                        alt="Arion – Admin Dashboard &amp; UI Kit HTML5 Template"/>
-                </div>
-            </a>
+                <a className={classes["project-cover__image-wrap"]} href={props.project.url} target="_blank" rel="noreferrer">
+                    <div className={classes["project-cover__image-container"]}>
+                        {
+                            isEmpty
+                                ? undefined
+                                : <img
+                                    className={`${classes["project-cover__image"]} img-cover js-lazy`}
+                                    src={props.project.image}
+                                    alt={props.project.title} />
+                        }
+                    </div>
+                </a>
                 <div className={classes["project-cover__details"]}>
                     <div className={classes["project-cover__details-inner"]}>
-                        <h3 className={classes["project-cover__title"]}><span>Arion</span><span
-                            className={classes["project-cover__title-full"]}>Arion – Admin Dashboard &amp; UI Kit HTML5 Template</span>
+                        <h3 className={classes["project-cover__title"]}>
+                            <span>{isEmpty ? 'Project' : props.project.title}</span>
+                            <span className={classes["project-cover__title-full"]}>{props.project.description}</span>
                         </h3>
                     </div>
                 </div>

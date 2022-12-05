@@ -23,7 +23,7 @@
     width: 100%;
   }
 
-  .theme-alt & {
+  [class*=theme-alt] & {
     background-color: var(--black-primary-color);
     color: var(--white-color);
   }
@@ -131,7 +131,7 @@
       transition: var(--t-base);
       border-radius: 5px 5px 0 0;
 
-      .theme-alt & {
+      [class*=theme-alt] & {
         background-color: var(--white-color);
       }
     }
@@ -197,7 +197,7 @@
       display: none;
     }
 
-    .theme-alt & {
+    [class*=theme-alt] & {
       color: var(--white-color);
     }
 

@@ -9,7 +9,7 @@ function Home() {
             <Header toggleLinkPath="/about" toggleLinkText="Portfolio" />
             <Intro title="Portfolio" />
             <main className={'page-content'}>
-                <ProjectCovers />
+                <ProjectCovers title={'Projects'} />
             </main>
         </div>
     )
