@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import classes from "./ProjectsCovers.module.scss";
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -18,17 +18,17 @@ const Slider = styled(Swiper)`
   }
 `;
 
-function ProjectCovers(props) {
+const ProjectCovers = props => {
     const [ items ] = useState(projects);
 
     return (
-        <section className={classes['project-covers']} id="projects">
+        <section className={`${classes['project-covers']} `} id="projects">
             <h1 className={classes['project-covers__title']}>
-                <div className={classes['project-covers__title-text']}>{props.title}</div>
+                <div className={`${classes['project-covers__title-text']} js-project-covers-title-text`}>{props.title}</div>
             </h1>
             <div className="container">
                 <div className="container__center">
-                    <div className={classes['project-covers__items']}>
+                    <div className={`${classes['project-covers__items']} js-project-covers-items`}>
                         {items.map(item => {
                            const {
                                id,
@@ -39,7 +39,7 @@ function ProjectCovers(props) {
 
                            return (
                                <div
-                                   className={`${classes['project-covers__item']} ${primary ? classes['project-covers__item--primary'] : ''} ${dark ? classes['project-covers__item--dark'] : ''} ${empty ? classes['project-covers__item--last'] : ''}`} key={id}>
+                                   className={`${classes['project-covers__item']} ${primary ? classes['project-covers__item--primary'] : ''} ${dark ? classes['project-covers__item--dark'] : ''} ${empty ? classes['project-covers__item--last'] : ''} js-project-covers-item`} key={id}>
                                    <ProjectCover project={item} />
                                </div>
                            )
@@ -47,7 +47,7 @@ function ProjectCovers(props) {
                     </div>
                 </div>
             </div>
-            <div className={classes['project-covers__row']}>
+            <div className={`${classes['project-covers__row']} js-project-covers-row`}>
                 <div className="container">
                     <div className="container__center">
                         <Slider
@@ -86,14 +86,12 @@ function ProjectCovers(props) {
                                         </SwiperSlide>
                                     )
                                 }
-
-                                return false;
                             })}
                         </Slider>
                     </div>
                 </div>
             </div>
-            <div className={classes['project-covers__progress-line']}></div>
+            <div className={`${classes['project-covers__progress-line']} js-project-covers-progress-line`}></div>
         </section>
     )
 }

@@ -1,0 +1,100 @@
+.switcher-grid {
+  --offset: 100vh - var(--intro-height) - var(--projects-padding-top);
+  position: absolute;
+  right: var(--container-gutter);
+  z-index: 4;
+  margin-top: calc((var(--offset)) * -1);
+  //opacity: 0;
+  transition: opacity 300ms ease-in;
+  //pointer-events: none;
+
+  @media screen and (max-width: 767px) {
+    --offset: 94px - var(--projects-padding-top);
+  }
+
+  &.is-visible {
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  &.is-sticky {
+    position: fixed;
+    top: calc(var(--offset));
+    transform: translateY(var(--header-height)) translateY(20px);
+  }
+
+  html.is-animating & {
+    right: calc(var(--container-gutter) + var(--scrollbar-width));
+  }
+
+  html.is-touch & {
+    right: var(--container-gutter);
+  }
+
+  &__button {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr 1fr);
+    width: 56px;
+    padding: 2px;
+    border: none;
+    outline: none;
+    border-radius: 6px;
+    transform: scale(1);
+    transition: var(--t-base);
+    background-color: var(--black-color-a5);
+
+    [class*="theme-alt"] & {
+      background-color: var(--white-color-a6);
+    }
+  }
+
+  &__bar {
+    position: relative;
+    height: 16px;
+    background-color: var(--purple-color);
+    transition: var(--t-base);
+    pointer-events: none;
+
+    &::before {
+      content: " ";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      box-shadow: 0 6px 12px rgba(233, 83, 139, 0.44);
+      border-radius: 50%;
+    }
+
+    &:nth-child(1) {
+      border-radius: 3px 0 0 0;
+      transform: translateY(-4px) translateX(-4px);
+    }
+
+    &:nth-child(2) {
+      border-radius: 0 3px 0 0;
+      transform: translateY(4px) translateX(4px);
+    }
+
+    &:nth-child(3) {
+      border-radius: 0 0 0 3px;
+      transform: translateY(4px) translateX(-4px);
+    }
+
+    &:nth-child(4) {
+      border-radius: 0 0 3px 0;
+      transform: translateY(12px) translateX(4px);
+    }
+
+    .switcher-grid--active & {
+      transform: translateX(0);
+    }
+
+    @media (hover: hover) {
+      .switcher-grid:hover & {
+        transform: translateX(0);
+      }
+    }
+  }
+}

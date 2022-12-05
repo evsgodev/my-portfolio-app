@@ -1,0 +1,34 @@
+.project-guide {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  font-weight: 700;
+  font-size: 18px;
+  text-align: center;
+  backdrop-filter: blur(4px);
+  background-color: var(--white-color-a2);
+  cursor: pointer;
+  pointer-events: none;
+  opacity: 0;
+
+  &.is-active {
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  @media screen and (min-width: 768px) {
+    display: none;
+  }
+
+  svg[class*="swipe"] {
+    max-width: 100px;
+    height: 100px;
+    margin-bottom: 15px;
+  }
+}
