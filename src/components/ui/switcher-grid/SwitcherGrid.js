@@ -1,7 +1,6 @@
 import React, {} from "react";
 import classes from "./SwitcherGrid.module.scss";
 import { gsap, Back, Circ } from "gsap";
-import styled from "styled-components";
 
 const SWITCHER_ACTIVE_CLS = classes['switcher-grid--active'];
 
