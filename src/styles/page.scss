@@ -27,7 +27,7 @@
     }
   }
 
-  .theme-alt & {
+  [class*=theme-alt] & {
     background-color: var(--white-color);
   }
 
@@ -47,7 +47,7 @@
   transform: translateY(var(--offset));
   overflow: hidden;
 
-  .intro--page ~ & {
+  [class*=intro--page] ~ & {
     --offset: unset;
   }
 
@@ -62,6 +62,7 @@
 }
 
 .container {
+  width: 100%;
   max-width: 1366px;
   margin: 0 auto;
 

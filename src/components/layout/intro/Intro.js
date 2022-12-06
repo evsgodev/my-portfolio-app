@@ -27,7 +27,7 @@ const Intro = props => {
                                 <span className={classes['intro__title-letters']}>The Front-End</span>&nbsp;
                                 <span className={classes['text-type']}>Developer</span>
                             </h1>
-                            <a className={`${classes['intro__scroll-btn']} js-scroll-link is-visible`} href="#content"></a>
+                            <link className={`${classes['intro__scroll-btn']} js-scroll-link is-visible`} to="#content"></link>
                         </div>
                     )
                 }

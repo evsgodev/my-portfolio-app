@@ -6,7 +6,7 @@ import Switcher from "../../ui/switcher/Switcher";
 
 const Header = props => {
     return (
-        <header className={classes['page-header']}>
+        <header className={`${classes['page-header']} ${props.secondary ? classes['page-header--secondary'] : ''}`}>
             <div className={classes['page-header__container']}>
                 <div className={classes['page-header__row']}>
                     <div className={classes['page-header__left']}>

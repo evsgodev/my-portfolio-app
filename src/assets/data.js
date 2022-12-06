@@ -72,3 +72,49 @@ export const projects = [
         "empty": true
     }
 ]
+
+export const experiences = [
+    {
+        "icon": "html"
+    }, {
+        "icon": "css"
+    }, {
+        "icon": "javascript"
+    }, {
+        "icon": "angular"
+    }, {
+        "icon": "react"
+    }, {
+        "icon": "typescript"
+    }, {
+        "icon": "node-js"
+    }, {
+        "icon": "sass"
+    }, {
+        "icon": "bootstrap"
+    }, {
+        "icon": "semantic"
+    }, {
+        "icon": "ionic"
+    }, {
+        "icon": "jquery"
+    }, {
+        "icon": "gulp"
+    }, {
+        "icon": "git"
+    }, {
+        "icon": "npm"
+    }, {
+        "icon": "yarn"
+    }, {
+        "icon": "webpack"
+    }, {
+        "icon": "babel"
+    }, {
+        "icon": "photoshop"
+    }, {
+        "icon": "figma"
+    }, {
+        "icon": "zeplin"
+    }
+]

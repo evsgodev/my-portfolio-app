@@ -3,6 +3,7 @@ import Header from "../layout/header/Header";
 import Intro from "../layout/intro/Intro";
 import ProjectCovers from "../containers/project-covers/ProjectCovers";
 import ProjectInterface from "../containers/ProjectInterface";
+import Footer from "../layout/footer/Footer";
 
 function Home() {
     return (
@@ -13,6 +14,7 @@ function Home() {
             <main className={'page-content'}>
                 <ProjectCovers title={'Projects'} />
             </main>
+            <Footer />
         </div>
     )
 }

@@ -79,13 +79,15 @@ const ProjectCovers = props => {
                                     empty: isEmpty
                                 } = item;
 
-                                if (!isEmpty) {
-                                    return (
-                                        <SwiperSlide key={id}>
-                                            <ProjectCover project={item}/>
-                                        </SwiperSlide>
-                                    )
+                                if (isEmpty) {
+                                    return false;
                                 }
+
+                                return (
+                                    <SwiperSlide key={id}>
+                                        <ProjectCover project={item}/>
+                                    </SwiperSlide>
+                                )
                             })}
                         </Slider>
                     </div>

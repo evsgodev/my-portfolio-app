@@ -1,0 +1,36 @@
+.footer {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: var(--footer-height);
+  display: flex;
+  align-items: center;
+  color: var(--white-color);
+  z-index: 3;
+
+  @media (max-width: 991px) {
+    text-align: center;
+  }
+
+  @media screen and (max-width: 374px) {
+    text-align: left;
+  }
+
+  .container {
+    flex-grow: 1;
+  }
+
+  &__copyright {
+    display: inline-block;
+    font-size: 16px;
+    background: linear-gradient(#eee, #333);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    [class*=theme-alt] & {
+      background: linear-gradient(#eee,  var(--black-color) 60%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  }
+}

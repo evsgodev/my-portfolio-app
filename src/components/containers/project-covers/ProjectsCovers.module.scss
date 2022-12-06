@@ -35,7 +35,7 @@
     pointer-events: none;
     user-select: none;
 
-    .theme-alt & {
+    [class*=theme-alt] & {
       opacity: 0.09;
     }
 
