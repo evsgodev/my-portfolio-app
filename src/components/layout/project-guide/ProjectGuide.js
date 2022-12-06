@@ -1,8 +1,13 @@
 import classes from "./ProjectGuide.module.scss";
 
-const ProjectGuide = () => {
+const ProjectGuide = props => {
+    const { gridState, setGridState } = props;
+
     return (
-        <div className={`${classes['project-guide']} js-project-guide`}>
+        <div
+            className={`${classes['project-guide']} ${gridState ? classes['is-active'] : ''}`}
+            onClick={ () => setGridState(false) }
+        >
             <div className={classes['project-guide__container']}>
                 <svg className={classes['icon-swipe']}>
                     <use xlinkHref="images/svg-symbols.svg#swipe"></use>
