@@ -1,12 +1,18 @@
 import classes from "./ProjectGuide.module.scss";
+import {useState} from "react";
 
 const ProjectGuide = props => {
-    const { gridState, setGridState } = props;
+    const { gridState } = props;
+    const [ isVisible, setIsVisible ] = useState(true);
+
+    const onClosed = () => {
+        setIsVisible(false);
+    }
 
     return (
         <div
-            className={`${classes['project-guide']} ${gridState ? classes['is-active'] : ''}`}
-            onClick={ () => setGridState(false) }
+            className={`${classes['project-guide']} ${(gridState && isVisible) ? classes['is-active'] : ''}`}
+            onClick={ onClosed }
         >
             <div className={classes['project-guide__container']}>
                 <svg className={classes['icon-swipe']}>

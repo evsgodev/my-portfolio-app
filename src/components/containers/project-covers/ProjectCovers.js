@@ -22,34 +22,66 @@ const Slider = styled(Swiper)`
 const ProjectCovers = props => {
     const [ items ] = useState(projects);
     const { gridState, setGridState } = props;
-    const toggleDuration = 0.2;
     const projectCoverTitle = useRef(null);
     const projectCoverItems = useRef(null);
-    const projectCoverItem = useRef(null);
+    const projectCoverItem = useRef([]);
     const projectCoverRow = useRef(null);
     const projectCoverProgressLine = useRef(null);
     const projectSlider = useRef(null);
 
+    const refsProjectItems = item => projectCoverItem.current.push(item);
+
     useEffect(() => {
+        const toggleDuration = 0.2;
         const tlToggle = gsap.timeline();
         const tlRow = gsap.timeline();
 
-        gsap.to(projectCoverItems.current, {
-            scale: 0.0,
-            duration: toggleDuration + 0.2
-        });
+        if (gridState) {
+            gsap.to(projectCoverItem.current, {
+                scale: 0.0,
+                duration: toggleDuration + 0.2
+            });
 
-        gsap.set(projectCoverRow.current, {
-            x: '100%',
-            autoAlpha: 0
-        });
+            gsap.set(projectSlider.current, {
+                x: '100%',
+                autoAlpha: 0
+            });
 
-        gsap.set(projectCoverTitle.current, {
-            x: '-18%',
-            autoAlpha: 0
-        });
+            gsap.set(projectCoverTitle.current, {
+                x: '-18%',
+                autoAlpha: 0
+            });
 
-        if (!gridState) {
+            tlToggle.to(projectCoverItems.current, {
+                autoAlpha: 0,
+                duration: toggleDuration,
+                ease: 'linear'
+            }).to(projectCoverRow.current, {
+                autoAlpha: 1,
+                duration: toggleDuration,
+                ease: 'linear',
+                onStart: () => {
+                    projectCoverItems.current.style.display = 'none';
+                    projectCoverRow.current.style.display = 'block';
+                    tlRow.to(projectSlider.current, {
+                        x: '0',
+                        duration: toggleDuration + 0.5,
+                        ease: 'power4.out'
+                    })
+                        .to(projectSlider.current, {
+                            autoAlpha: 1,
+                            duration: toggleDuration + 0.2,
+                            ease: 'power1.in'
+                        }, '-=0.75')
+                        .to(projectCoverTitle.current, {
+                            x: '0',
+                            autoAlpha: 1,
+                            duration: toggleDuration + 0.6,
+                            ease: Circ.easeOut
+                        }, '-=0.75');
+                }
+            });
+        } else {
             tlToggle.to(projectCoverRow.current, {
                 autoAlpha: 0,
                 duration: toggleDuration,
@@ -68,39 +100,7 @@ const ProjectCovers = props => {
                     });
                 }
             });
-
-            return;
         }
-
-        tlToggle.to(projectCoverItems.current, {
-            autoAlpha: 0,
-            duration: toggleDuration,
-            ease: 'linear'
-        }).to(projectCoverRow.current, {
-            autoAlpha: 1,
-            duration: toggleDuration,
-            ease: 'linear',
-            onStart: () => {
-                projectCoverItems.current.style.display = 'none';
-                projectCoverRow.current.style.display = 'block';
-                tlRow.to(projectSlider.current, {
-                    x: '0',
-                    duration: toggleDuration + 0.5,
-                    ease: 'power4.out'
-                })
-                    .to(projectSlider.current, {
-                        autoAlpha: 1,
-                        duration: toggleDuration + 0.2,
-                        ease: 'power1.in'
-                    }, '-=0.75')
-                    .to(projectCoverTitle.current, {
-                        x: '0',
-                        autoAlpha: 1,
-                        duration: toggleDuration + 0.6,
-                        ease: Circ.easeOut
-                    }, '-=0.75');
-            }
-        });
     }, [gridState, setGridState]);
 
     return (
@@ -121,7 +121,7 @@ const ProjectCovers = props => {
 
                            return (
                                <div
-                                   className={`${classes['project-covers__item']} ${primary ? classes['project-covers__item--primary'] : ''} ${dark ? classes['project-covers__item--dark'] : ''} ${empty ? classes['project-covers__item--last'] : ''}`} key={id}>
+                                   className={`${classes['project-covers__item']} ${primary ? classes['project-covers__item--primary'] : ''} ${dark ? classes['project-covers__item--dark'] : ''} ${empty ? classes['project-covers__item--last'] : ''}`} key={id} ref={refsProjectItems}>
                                    <ProjectCover project={item} />
                                </div>
                            )
