@@ -1,10 +1,18 @@
-import React from "react";
+import React, {useState} from "react";
 import { Link } from "react-router-dom";
 import "./Header.module.scss";
 import classes from "./Header.module.scss";
 import Switcher from "../../ui/switcher/Switcher";
 
 const Header = props => {
+    const [ themeToggle, setThemeToggle ] = useState(false)
+
+    const onToggleTheme = event => {
+        event.preventDefault();
+        document.documentElement.classList.toggle('theme-alt', !themeToggle);
+        setThemeToggle(!themeToggle);
+    };
+
     return (
         <header className={`${classes['page-header']} ${props.secondary ? classes['page-header--secondary'] : ''}`}>
             <div className={classes['page-header__container']}>
@@ -31,7 +39,11 @@ const Header = props => {
                                     </div>
                                 </div>
                             </div>
-                            <Switcher theme="true" />
+                            <Switcher
+                                onClick={ onToggleTheme }
+                                themeToggle={ themeToggle }
+                                data-switch={'theme'}
+                            />
                         </div>
                     </div>
                     <div className={classes['page-header__center']}>

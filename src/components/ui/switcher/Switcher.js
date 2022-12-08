@@ -1,23 +1,16 @@
-import {useState} from "react";
 import classes from "./Switcher.module.scss";
 
 const Switcher = props => {
-    const [isToggle, setToggle] = useState(false)
+    const { themeToggle } = props;
 
     const modifiers = (() => {
-        if (props.theme) {
+        if (!themeToggle) {
             return classes['switcher--theme'];
         }
     })();
 
-    const onToggle = event => {
-        event.preventDefault();
-        document.documentElement.classList.toggle('theme-alt', !isToggle);
-        setToggle(!isToggle);
-    };
-
     return (
-        <button onClick={onToggle} className={`${classes.switcher} ${modifiers} ${isToggle ? classes['switcher--active'] : ''}`} data-switch="theme">
+        <button className={`${classes.switcher} ${modifiers} ${themeToggle ? classes['switcher--active'] : ''}`} {...props}>
             <span className={classes['switcher__handle']}></span>
         </button>
     )
