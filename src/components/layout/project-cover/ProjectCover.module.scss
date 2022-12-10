@@ -101,34 +101,6 @@
     @media screen and (max-width: 374px) {
       margin: 0;
     }
-
-    &:hover {
-      &::before {
-        opacity: 1;
-      }
-    }
-
-    &::after {
-      content: '';
-      opacity: 0;
-      position: absolute;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      border-radius: var(--border-radius);
-      background-color: var(--black-color-a5);
-      transition: var(--t-base);
-
-      .project-cover:hover &,
-      .project-cover__inner:focus & {
-        opacity: 0.5;
-      }
-
-      .project-cover--empty & {
-        background-color: transparent;
-      }
-    }
   }
 
   &__image-container {
@@ -153,6 +125,35 @@
 
       .project-cover--empty & {
         opacity: 0;
+      }
+    }
+
+    .project-cover__image-wrap:hover {
+      &::before {
+        opacity: 1;
+      }
+    }
+
+    &::after {
+      content: '';
+      opacity: 0;
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: var(--border-radius);
+      background-color: var(--black-color-a5);
+      transition: var(--t-base);
+      pointer-events: none;
+
+      .project-cover:hover &,
+      .project-cover__inner:focus & {
+        opacity: 0.5;
+      }
+
+      .project-cover--empty & {
+        background-color: transparent;
       }
     }
   }
