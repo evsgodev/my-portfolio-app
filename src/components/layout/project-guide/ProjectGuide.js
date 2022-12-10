@@ -20,7 +20,7 @@ const ProjectGuide = props => {
                 </svg>
                 <div className={classes['project-guide__text']}>
                     Swipe projects left to right <br />
-                    <small className={classes['font-weight-500']}>Click to close</small></div>
+                    <small className={'font-weight-500'}>Click to close</small></div>
             </div>
         </div>
     )
