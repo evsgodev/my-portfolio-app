@@ -1,6 +1,6 @@
 import React from "react";
 
-function About() {
+function AboutContent() {
     return (
         <section className="section section-about">
             <div className="container">
@@ -39,4 +39,4 @@ function About() {
     )
 }
 
-export default About;
+export default AboutContent;
