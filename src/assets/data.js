@@ -73,7 +73,7 @@ export const projects = [
     }
 ]
 
-export const experiences = [
+export const experiencesData = [
     {
         "icon": "html"
     }, {

@@ -5,7 +5,7 @@ import ProjectCovers from "../containers/project-covers/ProjectCovers";
 import ProjectInterface from "../containers/ProjectInterface";
 import Footer from "../layout/footer/Footer";
 
-function Home() {
+const Home = () => {
     const [gridState, setGridState] = useState(false);
 
     return (

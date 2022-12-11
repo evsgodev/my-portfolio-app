@@ -1,8 +1,8 @@
 import React from "react";
 
-function AboutContent() {
+const AboutContent = ({ className }) => {
     return (
-        <section className="section section-about">
+        <section className={`section section-about ${className}`}>
             <div className="container">
                 <div className="container__center">
                     <div className="section__content">
