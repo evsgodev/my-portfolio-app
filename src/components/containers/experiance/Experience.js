@@ -5,12 +5,13 @@ import { experiencesData } from "../../../assets/data";
 const Experience = () => {
     return (
         <div className={classes['experiences']}>
-            <div className={classes['experiences__item']}>
-                <ExperienceItems  items={experiencesData} />
-            </div>
-            <div className={classes['experiences__item']}>
-                <ExperienceItems  items={experiencesData} />
-            </div>
+            {experiencesData.map(({ id, items }) => {
+                return (
+                    <div className={classes['experiences__item']} key={id}>
+                        <ExperienceItems  items={items} />
+                    </div>
+                )
+            })}
         </div>
     )
 }
