@@ -1,11 +1,10 @@
 import classes from "./Experience.module.scss";
 import ExperienceItems from "../../layout/experience-items/ExperienceItems";
-import { experiencesData } from "../../../assets/data";
 
-const Experience = () => {
+const Experience = ({ rows }) => {
     return (
         <div className={classes['experiences']}>
-            {experiencesData.map(({ id, items }) => {
+            {rows.map(({ id, items }) => {
                 return (
                     <div className={classes['experiences__item']} key={id}>
                         <ExperienceItems  items={items} />

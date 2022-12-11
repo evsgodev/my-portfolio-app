@@ -1,10 +1,8 @@
 import React, {useRef, useState, useCallback, useEffect} from "react";
 import classes from "./ExperienceItems.module.scss";
 
-const ExperienceItems = props => {
-    const [ items ] = useState(props);
+const ExperienceItems = ({ items }) => {
     const [ width, setWidth ] = useState(window.innerWidth);
-
     const expElement = useRef(null);
 
     const getSpeed = width => {
@@ -29,7 +27,7 @@ const ExperienceItems = props => {
 
     return (
         <div className={classes['experience']} ref={expElement}>
-            {items.items.map(item => {
+            {items.map(item => {
                 const { icon } = item;
 
                 return (
